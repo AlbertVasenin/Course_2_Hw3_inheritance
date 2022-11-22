@@ -55,4 +55,18 @@ public class Bus extends Transport {
         getBrand(), getModel(), getYear(), getCountry(), getMaxSpeed(), getDepartureStationName(),
         getEndingStation(), getTripPrice(), getPlace());
   }
+
+  @Override
+  public void refill(String petrol) {
+    petrol.trim();
+    if (petrol.equalsIgnoreCase("дизель")) {
+      System.out.println(
+          "Заправляю автобус дизельным топливом..." + "\"" + getBrand() + " " + getModel() + "\"");
+    } else if (petrol.equalsIgnoreCase("бензин")) {
+      System.out.println("Автобусы не ездят на бензине");
+    } else {
+      System.out.println(
+          "Выберите вид топлива для: " + "\"" + getBrand() + " " + getModel() + "\"");
+    }
+  }
 }

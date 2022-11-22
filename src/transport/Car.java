@@ -224,6 +224,24 @@ public class Car extends Transport {
   }
 
   @Override
+  public void refill(String petrol) {
+    petrol.trim();
+    if (petrol.equalsIgnoreCase("дизель")) {
+      System.out.println(
+          "Заправляю автомобиль дизельным топливом..." + "\"" + getBrand() + " " + getModel()
+              + "\"");
+    } else if (petrol.equalsIgnoreCase("бензин")) {
+      System.out.println(
+          "Заправляю автомобиль бензином..." + "\"" + getBrand() + " " + getModel() + "\"");
+    } else if (petrol.equalsIgnoreCase("зарядка")) {
+      System.out.println("Заряжаю электрокар..." + getBrand() + " " + getModel() + "\"");
+    } else {
+      System.out.println(
+          "Выберите вид топлива для: " + "\"" + getBrand() + " " + getModel() + "\"");
+    }
+  }
+
+  @Override
   public String toString() {
     return String.format(
         "%s %s, %d год выпуска, сборка %s, цвет %s, max скорость %d, объем двигателя %.1f л. Трансмиссия %s, кузов %s, регистрационный номер %s, "

@@ -1,6 +1,6 @@
 package transport;
 
-public class Transport {
+public abstract class Transport {
 
   private final String brand;
   private final String model;
@@ -54,4 +54,5 @@ public class Transport {
   public String validateString(String s) {
     return s != null && !s.isEmpty() && !s.isBlank() ? s : "...default...";
   }
+  public abstract void refill(String petrol);
 }

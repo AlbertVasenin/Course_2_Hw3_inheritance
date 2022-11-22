@@ -61,6 +61,11 @@ public class Main {
     System.out.println(mersedes);
     System.out.println(iveco);
     System.out.println(daewoo);
+    separator();
+    bmw.refill("Бензин");
+    iveco.refill("");
+    lastochka.refill("Дизель");
+
   }
 
   public static void separator() {

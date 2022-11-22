@@ -68,4 +68,18 @@ public class Train extends Transport {
         ", время следования " + travelTime + " часа" +
         ", количество вагонов " + numberOfWagons;
   }
+
+  @Override
+  public void refill(String petrol) {
+    petrol.trim();
+    if (petrol.equalsIgnoreCase("дизель")) {
+      System.out.println(
+          "Заправляем поезд дизельным топливом..." + "\"" + getBrand() + " " + getModel() + "\"");
+    } else if (petrol.equalsIgnoreCase("бензин")) {
+      System.out.println("Поезда не ездят на бензине");
+    } else {
+      System.out.println(
+          "Выберите вид топлива для: " + "\"" + getBrand() + " " + getModel() + "\"");
+    }
+  }
 }
