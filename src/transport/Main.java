@@ -1,6 +1,23 @@
 package transport;
 
+import animals.Animals;
+import animals.amphibians.Frog;
+import animals.amphibians.UzhFreshwater;
+import animals.birds.flightlessBirds.BirdDoDo;
+import animals.birds.flightlessBirds.Peacock;
+import animals.birds.flightlessBirds.Penguin;
+import animals.birds.flying.Albatross;
+import animals.birds.flying.Falcon;
+import animals.birds.flying.Gull;
+import animals.mammals.herbivores.Gazelle;
+import animals.mammals.herbivores.Giraffe;
+import animals.mammals.herbivores.Herbivores;
+import animals.mammals.herbivores.Horse;
+import animals.mammals.predators.Bear;
+import animals.mammals.predators.Hyena;
+import animals.mammals.predators.Tiger;
 import java.time.LocalDate;
+import java.util.Objects;
 import transport.Car.Insurance;
 import transport.Car.Key;
 
@@ -49,15 +66,18 @@ public class Main {
     printInfoAboutCar(cars);
     separator();
     Train lastochka = new Train("Ласточка", "В-901", 2011, "Россия", null, 301, 3500, 3,
-        "Белорусский вокзал", "Минск-Пассажирский",11);
+        "Белорусский вокзал", "Минск-Пассажирский", 11);
     Train leningrad = new Train("Ленинград", "D-125", 2019, "Россия", null, 270, 1700, 1,
-        "Ленинградский вокзала", "Ленинград-Пассажирский",8);
+        "Ленинградский вокзала", "Ленинград-Пассажирский", 8);
     System.out.println(lastochka);
     System.out.println(leningrad);
     separator();
-    Bus mersedes = new Bus("Mercedes","Benz Conecto G",2017,"Germany",null,140,10,"Самара","Киров", 2400);
-    Bus iveco = new Bus("Iveco","FBI 83 LR",2018,"Italy",null,140,10,"Краснодар","Сочи", 3320);
-    Bus daewoo = new Bus("Daewoo","BC212MA",2015,"Germany",null,120,10,"Киров","Казань", 4550);
+    Bus mersedes = new Bus("Mercedes", "Benz Conecto G", 2017, "Germany", null, 140, 10, "Самара",
+        "Киров", 2400);
+    Bus iveco = new Bus("Iveco", "FBI 83 LR", 2018, "Italy", null, 140, 10, "Краснодар", "Сочи",
+        3320);
+    Bus daewoo = new Bus("Daewoo", "BC212MA", 2015, "Germany", null, 120, 10, "Киров", "Казань",
+        4550);
     System.out.println(mersedes);
     System.out.println(iveco);
     System.out.println(daewoo);
@@ -65,6 +85,47 @@ public class Main {
     bmw.refill("Бензин");
     iveco.refill("");
     lastochka.refill("Дизель");
+    separator();
+    Gazelle gazelle = new Gazelle("Газель", 2, "Африка", 97, "трава");
+    Giraffe giraffe = new Giraffe("Жираф", 3, "Африка", 60, "трава");
+    Horse horse = new Horse("Лошадь", 4, "Россия", 60, "трава");
+    gazelle.eat();
+    giraffe.move();
+    horse.graze();
+    separator();
+    Hyena hyena = new Hyena("Гиена", 3, "Африка", 64, "падаль");
+    Tiger tiger = new Tiger("Тигр", 4, "Россия", 65, "травоядные звери");
+    Bear bear = new Bear("Медведь", 2, "Россия", 56, "сурки, суслики, бурундуки, рыба");
+    hyena.hunt();
+    tiger.move();
+    bear.walk();
+    separator();
+    Frog frog = new Frog("Лягушка", 1, "Россия");
+    UzhFreshwater uzhFreshwater = new UzhFreshwater("Уж пресноводный", 1, "Россия");
+    frog.sleep();
+    uzhFreshwater.hunt();
+    separator();
+    Gull gull = new Gull("Чайка", 3, "Россия", "полет");
+    Albatross albatross = new Albatross("Альбатрос", 2, "Южные старны", "полет");
+    Falcon falcon = new Falcon("Сокол", 3, "Россия", "полет");
+    gull.fly();
+    albatross.hunt();
+    falcon.sleep();
+    separator();
+    BirdDoDo birdDoDo = new BirdDoDo("Птица До До", 4, "остров Маврикий", "ногами");
+    Peacock peacock = new Peacock("Павлин", 3, "Индия", "ногами");
+    Penguin penguin = new Penguin("Пингвин", 4, "Антарктида", "ногами");
+    birdDoDo.walk();
+    peacock.eat();
+    penguin.move();
+    separator();
+    Animals[] animals = {frog, uzhFreshwater, birdDoDo, peacock, penguin, albatross, falcon, gull,
+        gazelle, giraffe, horse, bear, hyena, tiger};
+    for (Animals animal : animals) {
+      System.out.println(animal);
+    }
+    System.out.println(gazelle.getName().equals(giraffe.getName()));
+    System.out.println(Objects.equals(giraffe.getName(), giraffe.getName()));
 
   }
 

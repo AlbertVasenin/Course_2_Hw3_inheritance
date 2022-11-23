@@ -52,7 +52,7 @@ public class Car extends Transport {
 
     public void checkInsuranceNumber() {
       if (number.length() != 9) {
-        System.out.println("Номер страховки некорректный!");
+        System.out.println("Номер страховки некорректный! " + getNumber());
       }
     }
   }

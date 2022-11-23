@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.Objects;
+
 public abstract class Transport {
 
   private final String brand;
@@ -54,5 +56,26 @@ public abstract class Transport {
   public String validateString(String s) {
     return s != null && !s.isEmpty() && !s.isBlank() ? s : "...default...";
   }
+
   public abstract void refill(String petrol);
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof Transport)) {
+      return false;
+    }
+    Transport transport = (Transport) o;
+    return getYear() == transport.getYear() && getMaxSpeed() == transport.getMaxSpeed()
+        && Objects.equals(getBrand(), transport.getBrand()) && Objects.equals(
+        getModel(), transport.getModel()) && Objects.equals(getCountry(),
+        transport.getCountry()) && Objects.equals(getColor(), transport.getColor());
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(getBrand(), getModel(), getYear(), getCountry(), getColor(), getMaxSpeed());
+  }
 }
