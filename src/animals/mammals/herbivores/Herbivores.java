@@ -20,22 +20,22 @@ public class Herbivores extends Mammals {
   }
 
   @Override
-  public final void eat() {
+  public void eat() {
     System.out.println(getName()+" ест");
   }
 
   @Override
-  public final void sleep() {
+  public void sleep() {
     System.out.println(getName()+" спит");
   }
 
   @Override
-  public final void move() {
+  public void move() {
     System.out.println(getName()+" двигается");
   }
 
   @Override
-  public final void walk() {
+  public void walk() {
     System.out.println(getName()+" гуляет");
   }
 

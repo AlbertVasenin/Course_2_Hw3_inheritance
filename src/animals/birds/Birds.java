@@ -16,7 +16,7 @@ public class Birds extends Animals {
   }
 
   public final void setLivingEnvironment(String livingEnvironment) {
-    this.livingEnvironment = livingEnvironment;
+    this.livingEnvironment = validateString(livingEnvironment);
   }
 
   public final void hunt() {
@@ -24,17 +24,17 @@ public class Birds extends Animals {
   }
 
   @Override
-  public final void eat() {
+  public void eat() {
     System.out.println(getName() + " ест");
   }
 
   @Override
-  public final void sleep() {
+  public void sleep() {
     System.out.println(getName() + " спит");
   }
 
   @Override
-  public final void move() {
+  public void move() {
     System.out.println(getName() + " двигается");
   }
 }
