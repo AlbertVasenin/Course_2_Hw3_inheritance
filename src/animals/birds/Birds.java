@@ -1,6 +1,7 @@
 package animals.birds;
 
 import animals.Animals;
+import java.util.Objects;
 
 public class Birds extends Animals {
 
@@ -11,7 +12,7 @@ public class Birds extends Animals {
     this.livingEnvironment = validateString(livingEnvironment);
   }
 
-  public final String getLivingEnvironment() {
+  public String getLivingEnvironment() {
     return livingEnvironment;
   }
 
@@ -36,5 +37,25 @@ public class Birds extends Animals {
   @Override
   public void move() {
     System.out.println(getName() + " двигается");
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+    Birds birds = (Birds) o;
+    return Objects.equals(livingEnvironment, birds.livingEnvironment);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), livingEnvironment);
   }
 }

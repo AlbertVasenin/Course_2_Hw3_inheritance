@@ -22,11 +22,11 @@ public abstract class Animals {
     return name;
   }
 
-  public final int getAge() {
+  public int getAge() {
     return age;
   }
 
-  public final void setAge(int age) {
+  public void setAge(int age) {
     this.age = Math.max(age, 0);
   }
   public final String validateString(String n){

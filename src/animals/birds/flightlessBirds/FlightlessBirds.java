@@ -1,6 +1,7 @@
 package animals.birds.flightlessBirds;
 
 import animals.birds.Birds;
+import java.util.Objects;
 
 public class FlightlessBirds extends Birds {
 
@@ -11,7 +12,7 @@ public class FlightlessBirds extends Birds {
     this.movement = validateString(movement);
   }
 
-  public final String getMovement() {
+  public String getMovement() {
     return movement;
   }
 
@@ -24,5 +25,25 @@ public class FlightlessBirds extends Birds {
     return String.format(
         "Животные, нелетающие птицы: %s, возраст %d год(а), среда обитания: %s, способ передвижения: %s"
         , getName(), getAge(), getLivingEnvironment(), getMovement());
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    if (!super.equals(o)) {
+      return false;
+    }
+    FlightlessBirds that = (FlightlessBirds) o;
+    return Objects.equals(movement, that.movement);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(super.hashCode(), movement);
   }
 }

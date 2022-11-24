@@ -2,8 +2,10 @@ package transport;
 
 import animals.Animals;
 import animals.amphibians.Amphibians;
+import animals.birds.Birds;
 import animals.birds.flightlessBirds.FlightlessBirds;
 import animals.birds.flying.FlyingBirds;
+import animals.mammals.Mammals;
 import animals.mammals.herbivores.Herbivores;
 import animals.mammals.predators.Predators;
 import java.time.LocalDate;
@@ -77,17 +79,17 @@ public class Main {
     separator();
     FlightlessBirds birdDoDo = new FlightlessBirds("Птица До До", 4, "остров Маврикий", "ходьба");
     FlightlessBirds peacock = new FlightlessBirds("Павлин", 3, "Индия", "ходьба");
-    FlightlessBirds penguin = new FlightlessBirds("Пингвин", 4, "Антарктида", "ходьба");
+    Birds penguin = new FlightlessBirds("Пингвин", 4, "Антарктида", "ходьба");
     FlyingBirds albatross = new FlyingBirds("Альбатрос", 2, "Южные старны", "ходьба,полет");
-    FlyingBirds falcon = new FlyingBirds("Сокол", 3, "Россия", "ходьба,полет");
+    Birds falcon = new FlyingBirds("Сокол", 3, "Россия", "ходьба,полет");
     FlyingBirds gull = new FlyingBirds("Чайка", 2, "Россия", "ходьба,полет");
-    Herbivores gazelle = new Herbivores("Газель", 4, "Африка", 97, "трава");
+    Mammals gazelle = new Herbivores("Газель", 4, "Африка", 97, "трава");
     Herbivores giraffe = new Herbivores("Жираф", 4, "Африка", 60, "трава, листья деревьев");
     Herbivores horse = new Herbivores("Лошадь", 3, "Россия", 56, "трава");
-    Amphibians frog = new Amphibians("Лягушка", 2, "Россия");
+    Animals frog = new Amphibians("Лягушка", 2, "Россия");
     Amphibians uzhFreshwater = new Amphibians("Уж пресноводный", 3, "Россия");
     Predators hyena = new Predators("Гиена", 3, "Африка", 64, "падаль");
-    Predators tiger = new Predators("Тигр", 4, "Россия", 65, "мелкие звери");
+    Mammals tiger = new Predators("Тигр", 4, "Россия", 65, "мелкие звери");
     Predators bear = new Predators("Медведь", 2, "Россия", 56, "сурки, суслики, бурундуки, рыба");
     hyena.hunt();
     tiger.eat();
@@ -112,6 +114,21 @@ public class Main {
     System.out.println(gazelle.getName().equals(bear.getName()));
     System.out.println(frog.getName().equals(uzhFreshwater.getName()));
     System.out.println(uzhFreshwater.getName().equals(uzhFreshwater.getName()));
+    for (Animals animal : animals) {
+      if (animal instanceof Predators) {
+        System.out.println(
+            animal.getName() + " хищник, питается: " + ((Predators) animal).getEat());
+      }
+      if (animal instanceof Herbivores) {
+        System.out.println(animal.getName() + " ,травоядное, может развивать скорость до: "
+            + ((Herbivores) animal).getSpeedMove() + " км/ч");
+      }
+    }
+    for (Animals animal : animals) {
+      if (animal.getClass().equals(Amphibians.class)) {
+        System.out.println(animal.getName() + ": амфибия");
+      }
+    }
   }
 
   public static void separator() {
