@@ -2,7 +2,7 @@ package animals.birds;
 
 import animals.Animals;
 
-public abstract class Birds extends Animals {
+public class Birds extends Animals {
 
   private String livingEnvironment;
 
@@ -11,13 +11,30 @@ public abstract class Birds extends Animals {
     this.livingEnvironment = validateString(livingEnvironment);
   }
 
-  public abstract void hunt();
-
   public final String getLivingEnvironment() {
     return livingEnvironment;
   }
 
   public final void setLivingEnvironment(String livingEnvironment) {
-    this.livingEnvironment = validateString(livingEnvironment);
+    this.livingEnvironment = livingEnvironment;
+  }
+
+  public final void hunt() {
+    System.out.println(getName() + " охотится");
+  }
+
+  @Override
+  public final void eat() {
+    System.out.println(getName() + " ест");
+  }
+
+  @Override
+  public final void sleep() {
+    System.out.println(getName() + " спит");
+  }
+
+  @Override
+  public final void move() {
+    System.out.println(getName() + " двигается");
   }
 }

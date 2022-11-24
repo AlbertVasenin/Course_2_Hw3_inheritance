@@ -1,23 +1,12 @@
 package transport;
 
 import animals.Animals;
-import animals.amphibians.Frog;
-import animals.amphibians.UzhFreshwater;
-import animals.birds.flightlessBirds.BirdDoDo;
-import animals.birds.flightlessBirds.Peacock;
-import animals.birds.flightlessBirds.Penguin;
-import animals.birds.flying.Albatross;
-import animals.birds.flying.Falcon;
-import animals.birds.flying.Gull;
-import animals.mammals.herbivores.Gazelle;
-import animals.mammals.herbivores.Giraffe;
+import animals.amphibians.Amphibians;
+import animals.birds.flightlessBirds.FlightlessBirds;
+import animals.birds.flying.FlyingBirds;
 import animals.mammals.herbivores.Herbivores;
-import animals.mammals.herbivores.Horse;
-import animals.mammals.predators.Bear;
-import animals.mammals.predators.Hyena;
-import animals.mammals.predators.Tiger;
+import animals.mammals.predators.Predators;
 import java.time.LocalDate;
-import java.util.Objects;
 import transport.Car.Insurance;
 import transport.Car.Key;
 
@@ -86,47 +75,43 @@ public class Main {
     iveco.refill("");
     lastochka.refill("Дизель");
     separator();
-    Gazelle gazelle = new Gazelle("Газель", 2, "Африка", 97, "трава");
-    Giraffe giraffe = new Giraffe("Жираф", 3, "Африка", 60, "трава");
-    Horse horse = new Horse("Лошадь", 4, "Россия", 60, "трава");
-    gazelle.eat();
-    giraffe.move();
-    horse.graze();
-    separator();
-    Hyena hyena = new Hyena("Гиена", 3, "Африка", 64, "падаль");
-    Tiger tiger = new Tiger("Тигр", 4, "Россия", 65, "травоядные звери");
-    Bear bear = new Bear("Медведь", 2, "Россия", 56, "сурки, суслики, бурундуки, рыба");
+    FlightlessBirds birdDoDo = new FlightlessBirds("Птица До До", 4, "остров Маврикий", "ходьба");
+    FlightlessBirds peacock = new FlightlessBirds("Павлин", 3, "Индия", "ходьба");
+    FlightlessBirds penguin = new FlightlessBirds("Пингвин", 4, "Антарктида", "ходьба");
+    FlyingBirds albatross = new FlyingBirds("Альбатрос", 2, "Южные старны", "ходьба,полет");
+    FlyingBirds falcon = new FlyingBirds("Сокол", 3, "Россия", "ходьба,полет");
+    FlyingBirds gull = new FlyingBirds("Чайка", 2, "Россия", "ходьба,полет");
+    Herbivores gazelle = new Herbivores("Газель", 4, "Африка", 97, "трава");
+    Herbivores giraffe = new Herbivores("Жираф", 4, "Африка", 60, "трава, листья деревьев");
+    Herbivores horse = new Herbivores("Лошадь", 3, "Россия", 56, "трава");
+    Amphibians frog = new Amphibians("Лягушка", 2, "Россия");
+    Amphibians uzhFreshwater = new Amphibians("Уж пресноводный", 3, "Россия");
+    Predators hyena = new Predators("Гиена", 3, "Африка", 64, "падаль");
+    Predators tiger = new Predators("Тигр", 4, "Россия", 65, "мелкие звери");
+    Predators bear = new Predators("Медведь", 2, "Россия", 56, "сурки, суслики, бурундуки, рыба");
     hyena.hunt();
-    tiger.move();
-    bear.walk();
-    separator();
-    Frog frog = new Frog("Лягушка", 1, "Россия");
-    UzhFreshwater uzhFreshwater = new UzhFreshwater("Уж пресноводный", 1, "Россия");
-    frog.sleep();
+    tiger.eat();
+    bear.sleep();
+    frog.eat();
     uzhFreshwater.hunt();
-    separator();
-    Gull gull = new Gull("Чайка", 3, "Россия", "полет");
-    Albatross albatross = new Albatross("Альбатрос", 2, "Южные старны", "полет");
-    Falcon falcon = new Falcon("Сокол", 3, "Россия", "полет");
-    gull.fly();
-    albatross.hunt();
-    falcon.sleep();
-    separator();
-    BirdDoDo birdDoDo = new BirdDoDo("Птица До До", 4, "остров Маврикий", "ногами");
-    Peacock peacock = new Peacock("Павлин", 3, "Индия", "ногами");
-    Penguin penguin = new Penguin("Пингвин", 4, "Антарктида", "ногами");
+    gazelle.eat();
+    giraffe.sleep();
+    horse.graze();
     birdDoDo.walk();
     peacock.eat();
-    penguin.move();
+    penguin.sleep();
+    albatross.fly();
+    falcon.hunt();
+    gull.eat();
     separator();
     Animals[] animals = {frog, uzhFreshwater, birdDoDo, peacock, penguin, albatross, falcon, gull,
         gazelle, giraffe, horse, bear, hyena, tiger};
     for (Animals animal : animals) {
       System.out.println(animal);
     }
-    System.out.println(gazelle.getName().equals(giraffe.getName()));
-    System.out.println(Objects.equals(giraffe.getName(), giraffe.getName()));
-
+    System.out.println(gazelle.getName().equals(bear.getName()));
+    System.out.println(frog.getName().equals(uzhFreshwater.getName()));
+    System.out.println(uzhFreshwater.getName().equals(uzhFreshwater.getName()));
   }
 
   public static void separator() {
